@@ -1,10 +1,3 @@
-# configKits
-基于zookeeper 和spring的动态配置
-
-
-
-
-
 热配使用配置：
  1. 引入 spring namespace:
      xmlns:config="http://www.springframework.org/schema/config"

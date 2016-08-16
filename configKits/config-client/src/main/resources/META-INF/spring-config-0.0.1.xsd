@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xsd:schema xmlns="http://www.springframework.org/schema/config"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            xmlns:tool="http://www.springframework.org/schema/tool"
+            targetNamespace="http://www.springframework.org/schema/config"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.springframework.org/schema/beans"
+                schemaLocation="http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"/>
+
+    <xsd:annotation>
+        <xsd:documentation><![CDATA[configcenter schema]]></xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:element name="config">
+        <xsd:complexType>
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[用于配置配置中心的相关连接信息,直接将zk地址作为值]]></xsd:documentation>
+            </xsd:annotation>
+            <xsd:attribute name="zkUrl" type="xsd:string"
+                           default="">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[配置中心zookeeper地址,多个地址用英文逗号分隔]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="env" type="xsd:string"
+                           default="dev">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[配置应用环境]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="appName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[配置应用名称]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="charset" type="xsd:string"
+                           default="utf-8">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[配置文件编码utf-8,gbk,etc.]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="annotation">
+        <xsd:complexType>
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[使用Config注解]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
